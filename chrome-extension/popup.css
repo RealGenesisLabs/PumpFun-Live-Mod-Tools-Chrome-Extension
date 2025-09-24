@@ -1,0 +1,89 @@
+* { box-sizing: border-box; }
+:root {
+	--bg: #0a0f14;
+	--panel: #0f1720;
+	--text: #d1ffe3;
+	--muted: #8de1b5;
+	--accent: #00ff95;
+	--accent-dim: #00cc77;
+	--danger: #ff5d5d;
+	--border: #123;
+	--shadow: 0 0 24px rgba(0,255,149,0.2), inset 0 0 0 1px rgba(0,255,149,0.08);
+}
+html, body { margin: 0; padding: 0; }
+body {
+	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+	background: radial-gradient(1200px 600px at 20% -10%, rgba(0,255,149,0.08), transparent),
+	            radial-gradient(1000px 500px at 120% 110%, rgba(0,255,149,0.06), transparent),
+	            var(--bg);
+	color: var(--text);
+	min-width: 360px;
+	max-width: 420px;
+}
+.app { padding: 16px; }
+
+.logo {
+	float: left;
+	width: 32px;
+	height: 32px;
+	margin-right: 8px;
+	position: relative;
+	top: -4px;
+}
+
+h1 { font-size: 16px; margin: 0 0 12px; color: var(--accent); text-shadow: 0 0 8px rgba(0,255,149,0.5); }
+h2 { font-size: 13px; margin: 14px 0 8px; color: var(--muted); }
+
+.section { background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 10px; box-shadow: var(--shadow); clear: both;}
+.section + .section { margin-top: 12px; }
+
+.controls { display: flex; gap: 8px; }
+.controls input {
+	flex: 1; padding: 8px 10px; background: #081018; color: var(--text);
+	border: 1px solid var(--border); border-radius: 6px; outline: none;
+	box-shadow: inset 0 0 0 1px rgba(0,255,149,0.06);
+}
+.controls input:focus { border-color: var(--accent-dim); box-shadow: 0 0 0 2px rgba(0,255,149,0.2); }
+.controls button { padding: 8px 10px; background: var(--accent); border: 0; color: #001b10; border-radius: 6px; cursor: pointer; font-weight: 700; }
+.controls button:hover { background: var(--accent-dim); }
+
+.list { list-style: none; padding: 0; margin: 0; max-height: 180px; overflow: auto; border-top: none; }
+.list li { display: grid; grid-template-columns: 1fr auto auto; gap: 8px; align-items: center; padding: 4px; border-bottom: 1px dashed var(--border); }
+.list li .word { color: var(--text); }
+.list li .actions { display: flex; gap: 8px; align-items: center; justify-self: end; }
+.list li .remove-btn {
+	width: 22px;
+	height: 22px;
+	border: 1px solid var(--border);
+	background: #0b1a12;
+	color: var(--danger);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 18px;
+	line-height: 1;
+	cursor: pointer;
+	transition: background 0.2s, border-color 0.2s;
+	box-shadow: inset 0 0 0 1px rgba(0,255,149,0.06);
+	padding: 0 0 2px;
+}
+.list li .remove-btn:hover {
+	background: rgba(255, 93, 93, 0.1);
+	border-color: var(--danger);
+}
+
+.footer { display: flex; gap: 8px; margin-top: 12px; }
+.footer button { flex: 1; padding: 8px 10px; background: #081018; color: var(--muted); border: 1px solid var(--border); border-radius: 6px; cursor: pointer; }
+.footer button:hover { border-color: var(--accent-dim); color: var(--text); }
+
+.toggle { position: relative; width: 42px; height: 22px; background: #0b1a12; border: 1px solid var(--border); border-radius: 999px; cursor: pointer; box-shadow: inset 0 0 0 1px rgba(0,255,149,0.08); }
+.toggle .knob { position: absolute; top: 1px; left: 2px; width: 18px; height: 18px; background: #133; border-radius: 50%; transition: transform 0.2s ease, background 0.2s; }
+.toggle.on { background: rgba(0,255,149,0.2); border-color: var(--accent-dim); }
+.toggle.on .knob { transform: translateX(20px); background: var(--accent); }
+
+.global-tip { position: fixed; max-width: 280px; padding: 10px; background: #0b141c; color: var(--muted); border: 1px solid var(--border); border-radius: 8px; box-shadow: var(--shadow), 0 8px 24px rgba(0,0,0,0.35); opacity: 0; visibility: hidden; transition: opacity 0.12s ease, transform 0.12s ease; transform: translateY(4px); z-index: 10000; font-size: 12px; line-height: 1.3; }
+.global-tip.show { opacity: 1; visibility: visible; transform: translateY(0); }
+.global-tip b { color: var(--accent); }
+
+.list-header { display: grid; grid-template-columns: 1fr auto auto; gap: 8px; align-items: center; color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .05em; padding: 4px 8px 4px 4px; margin-top: 8px; border-bottom: 2px dashed var(--border); opacity: 0.85; }

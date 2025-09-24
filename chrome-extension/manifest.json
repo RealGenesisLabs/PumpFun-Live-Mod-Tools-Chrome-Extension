@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Pump.Fun Live Mod Tools",
+  "version": "1.1",
+  "description": "Automatically moderates Pump.fun live chat with configurable ban/delete keyword lists.",
+  "permissions": [
+    "storage"
+  ],
+  "action": {
+    "default_title": "Pump.Fun Live Mod Tools",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "32": "icon32.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.pump.fun/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Pump.Fun Live Mod Tools</title>
+	<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+	<div class="app">
+		<img src="icon128.png" alt="Logo" class="logo">
+		<h1>Pump.Fun Live Mod Tools</h1>
+		<div class="section">
+			<h2>Auto Ban Message List</h2>
+			<div class="controls">
+				<input id="ban-input" type="text" placeholder="Add word or phrase…">
+				<button id="ban-add">Add</button>
+			</div>
+			<div class="list-header">
+				<div>Word / Phrase:</div>
+				<div>Exact Match:</div>
+				<div></div>
+			</div>
+			<ul id="ban-list" class="list"></ul>
+		</div>
+		<div class="section">
+			<h2>Auto Delete Message List</h2>
+			<div class="controls">
+				<input id="delete-input" type="text" placeholder="Add word or phrase…">
+				<button id="delete-add">Add</button>
+			</div>
+			<div class="list-header">
+				<div>Word / Phrase:</div>
+				<div>Exact Match:</div>
+				<div></div>
+			</div>
+			<ul id="delete-list" class="list"></ul>
+		</div>
+		<div class="footer">
+			<button id="export">Export</button>
+			<button id="import">Import</button>
+			<input id="import-file" type="file" accept="application/json" hidden>
+		</div>
+	</div>
+	<div id="global-tip" class="global-tip"></div>
+	<script src="popup.js"></script>
+</body>
+</html>
